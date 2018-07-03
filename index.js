@@ -1,7 +1,7 @@
 var express= require('express');
 var app = express();
 
-app.listen(3000);
+var port =  process.env.PORT || 3000;
 
 var bodyParser = require('body-parser');
 var cors = require('cors');
@@ -118,4 +118,4 @@ app.get('/quotes', (req, res, next) => res.send(quotes));
 app.get('/quotes/random', (req, res, next) => res.send(quotes[Math.floor(Math.random()*quotes.length)]));
 app.get('/quotes/:id', (req, res, next) => res.send(quotes[req.params.id -1]));
 
-app.listen(3001);
+app.listen(port);
